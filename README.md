@@ -211,13 +211,14 @@ LibreTV 仅作为视频搜索工具，不存储、上传或分发任何视频内
 
 本项目开发者不对使用本项目产生的任何后果负责。使用本项目时，您必须遵守当地的法律法规。
 
-## 🎉 贡献者福利
+## 🎉 分支更新内容
 
-活跃贡献者可以在 [Issue #268](https://github.com/shanke5589/LibreTV/issues/268) 中留言，申请免费上车 1Password Team，享受团队协作工具的便利！
+支持手机端访问，更新布局，和播放时的缓存逻辑。
 
 ## 💝 支持项目
 
 如果您想支持本项目，可以考虑进行捐款：
-![Uploading 5e1edd538bbecc1859c037e37544da7.jpg…]()
+<img width="301" height="369" alt="image" src="https://github.com/user-attachments/assets/d9879250-ef46-4c3f-a9a3-2ef2e603dbcd" />
+
 
 
