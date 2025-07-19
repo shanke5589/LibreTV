@@ -104,8 +104,6 @@ docker run -d \
   -p 8899:8080 \
   -e PASSWORD=your_password \
   -e ADMINPASSWORD=your_adminpassword \
-volumes:
-  - /www/wwwroot/path:/app 
   bestzwei/libretv:latest
 ```
 
@@ -124,7 +122,7 @@ services:
       - PASSWORD=${PASSWORD:-your_password} # 可将 your_password 修改为你想要的密码，默认为 your_password
       - ADMINPASSWORD=${PASSWORD:-your_adminpassword} # 可将 your_adminpassword 修改为你想要的密码，默认为 your_adminpassword
     volumes:
-      - /www/wwwroot/path:/app   # 可将/www/wwwroot/path:修改为你想要的路径，默认为 /www/wwwroot/path
+      - /www/wwwroot/path:/app   # 可将/www/wwwroot/path:修改为你想要的部署路径，默认为 /www/wwwroot/path
     restart: unless-stopped
 ```
 启动 TV：
@@ -176,7 +174,7 @@ npm run dev
 
 ### API兼容性
 
-LibreTV 支持标准的苹果 CMS V10 API 格式。添加自定义 API 时需遵循以下格式：
+妮妮TV 支持标准的苹果 CMS V10 API 格式。添加自定义 API 时需遵循以下格式：
 - 搜索接口: `https://example.com/api.php/provide/vod/?ac=videolist&wd=关键词`
 - 详情接口: `https://example.com/api.php/provide/vod/?ac=detail&ids=视频ID`
 
@@ -211,7 +209,7 @@ LibreTV 仅作为视频搜索工具，不存储、上传或分发任何视频内
 
 本项目开发者不对使用本项目产生的任何后果负责。使用本项目时，您必须遵守当地的法律法规。
 
-## 🎉 分支更新内容
+## 🎉 本次1.0.1分支更新内容
 
 支持手机端访问，更新布局，和播放时的缓存逻辑。
 
