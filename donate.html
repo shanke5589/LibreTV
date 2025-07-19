@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捐赠支持 - 妮妮TV</title>
+    	<script src="libs/tailwindcss.min.js"></script>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/mobile.css">
+	<link rel="manifest" href="manifest.json">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="image/logo.png">
+    <link rel="apple-touch-icon" href="image/logo-black.png">
+</head>
+<body class="page-bg text-white flex flex-col min-h-screen">
+    <header class="border-b border-[#333] bg-[#0a0a0a] p-4">
+        <div class="container mx-auto flex items-center">
+            <div class="flex items-center">
+                <a href="/" class="flex items-center">
+                    <svg class="w-8 h-8 mr-2 text-[#00ccff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    <h1 class="text-xl font-bold gradient-text">妮妮TV</h1>
+                </a>
+            </div>
+            <div class="flex-1 text-center">
+                <h2 class="text-xl font-semibold">捐赠支持</h2>
+            </div>
+            <div class="flex items-center">
+                <a href="/" class="px-4 py-2 bg-[#222] hover:bg-[#333] border border-[#333] rounded-lg transition-colors flex items-center">
+                    <svg class="w-5 h-5 mr-1" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    回到首页
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 sm:px-6 py-8 sm:py-16">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-gradient-to-br from-[#111] to-[#0a0a0a] border border-[#333] rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl">
+                
+                <!-- 标题区域 -->
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-r from-blue-500 to-cyan-500">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl font-bold gradient-text mb-4">感谢您的支持</h1>
+                    <p class="text-gray-300 text-lg">您的每一份捐赠都是对我们最大的鼓励</p>
+                </div>
+
+                <!-- 捐赠说明 -->
+                <div class="bg-[#1a1a1a] border border-[#333] rounded-lg p-6 mb-8">
+                    <h3 class="text-xl font-semibold text-gray-200 mb-4">捐赠说明</h3>
+                    <div class="space-y-3 text-gray-300">
+                        <p>• 您的捐赠将用于服务器维护和项目开发</p>
+                        <p>• 所有捐赠都是自愿的，不影响任何功能使用</p>
+                        <p>• 感谢您对开源项目的支持</p>
+                    </div>
+                </div>
+
+                <!-- 支付宝二维码区域 -->
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-200 mb-6">支付宝捐赠</h3>
+                    <div class="bg-white rounded-lg p-4 inline-block mb-4">
+                        <!-- 这里需要替换为你的支付宝二维码图片 -->
+                        <img src="image/alipay-qr.png" alt="支付宝二维码" class="w-48 h-48 mx-auto" id="alipayQR">
+                        <!-- 如果图片不存在，显示占位符 -->
+                        <div id="qrPlaceholder" class="w-48 h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-sm hidden">
+                            <div class="text-center">
+                                <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V6a1 1 0 00-1-1H5a1 1 0 00-1 1v1a1 1 0 001 1zm12 0h2a1 1 0 001-1V6a1 1 0 00-1-1h-2a1 1 0 00-1 1v1a1 1 0 001 1zM5 20h2a1 1 0 001-1v-1a1 1 0 00-1-1H5a1 1 0 00-1 1v1a1 1 0 001 1z"></path>
+                                </svg>
+                                <p>请上传您的支付宝二维码</p>
+                                <p class="text-xs mt-1">替换 image/alipay-qr.png</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">扫描二维码进行捐赠</p>
+                </div>
+
+                <!-- 其他捐赠方式 -->
+                <div class="mt-8 text-center">
+                    <h3 class="text-lg font-semibold text-gray-200 mb-4">其他捐赠方式</h3>
+                    <div class="flex justify-center space-x-4">
+                        <button class="px-6 py-3 bg-[#222] hover:bg-[#333] border border-[#333] rounded-lg transition-colors">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            微信支付
+                        </button>
+                        <button class="px-6 py-3 bg-[#222] hover:bg-[#333] border border-[#333] rounded-lg transition-colors">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            PayPal
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 感谢信息 -->
+                <div class="mt-8 text-center">
+                    <p class="text-gray-400">再次感谢您的支持！</p>
+                    <p class="text-gray-500 text-sm mt-2">您的每一份捐赠都让妮妮TV变得更好</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer py-6 border-t border-[#333] bg-[#0a0a0a]">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="gradient-text font-bold">妮妮TV</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-2 text-center md:text-left">© 2025 妮妮TV - 妮妮相伴，精彩无限</p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <div class="mt-2 flex justify-center md:justify-end space-x-4">
+                        <a href="/" class="text-gray-400 hover:text-white text-sm transition-colors">首页</a>
+                        <a href="about.html" class="text-gray-400 hover:text-white text-sm transition-colors">关于我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 检查二维码图片是否存在
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrImage = document.getElementById('alipayQR');
+            const placeholder = document.getElementById('qrPlaceholder');
+            
+            qrImage.onerror = function() {
+                qrImage.style.display = 'none';
+                placeholder.classList.remove('hidden');
+            };
+            
+            qrImage.onload = function() {
+                placeholder.classList.add('hidden');
+            };
+        });
+    </script>
+</body>
+</html> 

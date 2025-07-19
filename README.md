@@ -6,7 +6,7 @@
   <p><strong>自由观影，畅享精彩</strong></p>
 </div>
 
-## 📺 项目简介
+## �� 项目简介
 
 LibreTV 是一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务。无需注册，即开即用，支持多种设备访问。项目结合了前端技术和后端代理功能，可部署在支持服务端功能的各类网站托管服务上。**项目门户**： [libretv.is-an.org](https://libretv.is-an.org)
 
@@ -24,7 +24,7 @@ LibreTV 是一个轻量级、免费的在线视频搜索与观看平台，提供
 
 ## 🚀 快速部署
 
-选择以下任一平台，点击一键部署按钮，即可快速创建自己的 LibreTV 实例：
+选择以下任一平台，点击一键部署按钮，即可快速创建自己的 妮妮TV 实例：
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLibreSpark%2FLibreTV)  
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/LibreSpark/LibreTV)  
@@ -96,7 +96,7 @@ Pull Bot 会反复触发无效的 PR 和垃圾邮件，严重干扰项目维护�
 3. 选择您的仓库，Render 会自动检测到 `render.yaml` 配置文件
 4. 保持默认设置（无需设置环境变量，默认不启用密码保护）
 5. 点击 "Create Web Service"，等待部署完成
-6. 部署成功后即可访问您的 LibreTV 实例
+6. 部署成功后即可访问您的 妮妮TV 实例
 
 > 如需启用密码保护，可在 Render 控制台的环境变量中手动添加 `PASSWORD` 和/或 `ADMINPASSWORD`。
 
@@ -127,7 +127,7 @@ services:
       - ADMINPASSWORD=${PASSWORD:-your_adminpassword} # 可将 your_adminpassword 修改为你想要的密码，默认为 your_adminpassword
     restart: unless-stopped
 ```
-启动 LibreTV：
+启动 妮妮TV：
 
 ```bash
 docker compose up -d
@@ -157,7 +157,7 @@ npm run dev
 
 ### 密码保护
 
-要为您的 LibreTV 实例添加密码保护，可以在部署平台上设置环境变量：
+要为您的 妮妮TV 实例添加密码保护，可以在部署平台上设置环境变量：
 
 **环境变量名**: `PASSWORD` 
 **值**: 您想设置的密码
@@ -176,7 +176,7 @@ npm run dev
 
 ### API兼容性
 
-LibreTV 支持标准的苹果 CMS V10 API 格式。添加自定义 API 时需遵循以下格式：
+妮妮TV 支持标准的苹果 CMS V10 API 格式。添加自定义 API 时需遵循以下格式：
 - 搜索接口: `https://example.com/api.php/provide/vod/?ac=videolist&wd=关键词`
 - 详情接口: `https://example.com/api.php/provide/vod/?ac=detail&ids=视频ID`
 
