@@ -1,14 +1,14 @@
-# LibreTV - 免费在线视频搜索与观看平台
+# 妮妮TV - 免费在线视频搜索与观看平台
 
 <div align="center">
   <img src="image/logo.png" alt="LibreTV Logo" width="120">
   <br>
-  <p><strong>自由观影，畅享精彩</strong></p>
+  <p><strong>妮妮观影，畅享精彩</strong></p>
 </div>
 
 ## 📺 项目简介
 
-LibreTV 是一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务。无需注册，即开即用，支持多种设备访问。项目结合了前端技术和后端代理功能，可部署在支持服务端功能的各类网站托管服务上。**项目门户**： [libretv.is-an.org](https://libretv.is-an.org)
+妮妮TV 是一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务。无需注册，即开即用，支持多种设备访问。项目结合了前端技术和后端代理功能，可部署在支持服务端功能的各类网站托管服务上。**项目门户**： [libretv.is-an.org](https://libretv.is-an.org)
 
 本项目基于 [bestK/tv](https://github.com/bestK/tv) 进行重构与增强。
 
@@ -16,15 +16,9 @@ LibreTV 是一个轻量级、免费的在线视频搜索与观看平台，提供
   <summary>点击查看项目截图</summary>
   <img src="https://github.com/user-attachments/assets/df485345-e83b-4564-adf7-0680be92d3c7" alt="项目截图" style="max-width:600px">
 </details>
-
-## 🥇 感谢赞助
-
-- **[YXVM](https://yxvm.com)**  
-- **[ZMTO/VTEXS](https://zmto.com)**
-
 ## 🚀 快速部署
 
-选择以下任一平台，点击一键部署按钮，即可快速创建自己的 LibreTV 实例：
+选择以下任一平台，点击一键部署按钮，即可快速创建自己的 妮妮TV 实例：
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fshanke5589%2FLibreTV)  
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/shanke5589/LibreTV)  
@@ -86,8 +80,10 @@ Pull Bot 会反复触发无效的 PR 和垃圾邮件，严重干扰项目维护�
 3. 导入您的仓库，使用默认设置
 4. **⚠️ 重要：在"Settings" > "Environment Variables"中添加 `PASSWORD` 变量**
 5. **可选：在"Settings" > "Environment Variables"中添加 `ADMINPASSWORD` 变量**
-6. 点击"Deploy"
-7. 可选：在"Settings" > "Environment Variables"中配置密码保护和设置按钮密码保护
+6.  **可选volumes:**
+      - /www/wwwroot/path:/app 中添加 `调整路径` 变量**
+7. 点击"Deploy"
+8. 可选：在"Settings" > "Environment Variables"中配置密码保护和设置按钮密码保护
 
 ### Render
 
@@ -108,6 +104,8 @@ docker run -d \
   -p 8899:8080 \
   -e PASSWORD=your_password \
   -e ADMINPASSWORD=your_adminpassword \
+volumes:
+  - /www/wwwroot/path:/app 
   bestzwei/libretv:latest
 ```
 
@@ -125,9 +123,11 @@ services:
     environment:
       - PASSWORD=${PASSWORD:-your_password} # 可将 your_password 修改为你想要的密码，默认为 your_password
       - ADMINPASSWORD=${PASSWORD:-your_adminpassword} # 可将 your_adminpassword 修改为你想要的密码，默认为 your_adminpassword
+    volumes:
+      - /www/wwwroot/path:/app   # 可将/www/wwwroot/path:修改为你想要的路径，默认为 /www/wwwroot/path
     restart: unless-stopped
 ```
-启动 LibreTV：
+启动 TV：
 
 ```bash
 docker compose up -d
@@ -218,5 +218,6 @@ LibreTV 仅作为视频搜索工具，不存储、上传或分发任何视频内
 ## 💝 支持项目
 
 如果您想支持本项目，可以考虑进行捐款：
+![Uploading 5e1edd538bbecc1859c037e37544da7.jpg…]()
 
-[![捐赠](https://img.shields.io/badge/爱心捐赠-支持项目-1a85ff?style=for-the-badge&logo=heart)](donate.html)
+
