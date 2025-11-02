@@ -120,11 +120,12 @@ function addAdultAPI() {
         adultdiv.className = 'grid grid-cols-2 gap-2';
         const adultTitle = document.createElement('div');
         adultTitle.className = 'api-group-title adult';
-        adultTitle.innerHTML = `黄色资源采集站 <span class="adult-warning">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-        </span>`;
+        // adultTitle.innerHTML = `黄色资源采集站 <span class="adult-warning">
+        //     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        //         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        //     </svg>
+        // </span>`;
+        adultTitle.innerHTML = "";
         adultdiv.appendChild(adultTitle);
 
         // 创建成人API源的复选框
@@ -484,9 +485,21 @@ function toggleSettings(e) {
     const settingsPanel = document.getElementById('settingsPanel');
     if (!settingsPanel) return;
 
+    // 检查是否有管理员密码
+    const hasAdminPassword = window.__ENV__?.ADMINPASSWORD && 
+                           window.__ENV__.ADMINPASSWORD.length === 64 && 
+                           !/^0+$/.test(window.__ENV__.ADMINPASSWORD);
+
     if (settingsPanel.classList.contains('show')) {
         settingsPanel.classList.remove('show');
     } else {
+        // 只有设置了管理员密码且未验证时才拦截
+        // if (hasAdminPassword && !isAdminVerified()) {
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        //     showAdminPasswordModal();
+        //     return;
+        // }
         settingsPanel.classList.add('show');
     }
 
@@ -584,11 +597,11 @@ function resetSearchArea() {
     try {
         window.history.pushState(
             {},
-            `妮妮TV - 免费在线视频搜索与观看平台`,
+            `LibreTV - 免费在线视频搜索与观看平台`,
             `/`
         );
         // 更新页面标题
-        document.title = `妮妮TV - 免费在线视频搜索与观看平台`;
+        document.title = `LibreTV - 免费在线视频搜索与观看平台`;
     } catch (e) {
         console.error('更新浏览器历史失败:', e);
     }
@@ -605,7 +618,13 @@ function getCustomApiInfo(customApiIndex) {
 
 // 搜索功能 - 修改为支持多选API和多页结果
 async function search() {
-    // 密码保护已禁用，跳过检查
+    // 密码保护校验
+    // if (window.isPasswordProtected && window.isPasswordVerified) {
+    //     if (window.isPasswordProtected() && !window.isPasswordVerified()) {
+    //         showPasswordModal && showPasswordModal();
+    //         return;
+    //     }
+    // }
     const query = document.getElementById('searchInput').value.trim();
 
     if (!query) {
@@ -692,11 +711,11 @@ async function search() {
             // 使用HTML5 History API更新URL，不刷新页面
             window.history.pushState(
                 { search: query },
-                `搜索: ${query} - 妮妮TV`,
+                `搜索: ${query} - LibreTV`,
                 `/s=${encodedQuery}`
             );
             // 更新页面标题
-            document.title = `搜索: ${query} - 妮妮TV`;
+            document.title = `搜索: ${query} - LibreTV`;
         } catch (e) {
             console.error('更新浏览器历史失败:', e);
             // 如果更新URL失败，继续执行搜索
@@ -840,7 +859,13 @@ document.addEventListener('DOMContentLoaded', hookInput);
 
 // 显示详情 - 修改为支持自定义API
 async function showDetails(id, vod_name, sourceCode) {
-    // 密码保护已禁用，跳过检查
+    // 密码保护校验
+    // if (window.isPasswordProtected && window.isPasswordVerified) {
+    //     if (window.isPasswordProtected() && !window.isPasswordVerified()) {
+    //         showPasswordModal && showPasswordModal();
+    //         return;
+    //     }
+    // }
     if (!id) {
         showToast('视频ID无效', 'error');
         return;
@@ -966,7 +991,13 @@ async function showDetails(id, vod_name, sourceCode) {
 
 // 更新播放视频函数，修改为使用/watch路径而不是直接打开player.html
 function playVideo(url, vod_name, sourceCode, episodeIndex = 0, vodId = '') {
-    // 密码保护已禁用，跳过检查
+    // 密码保护校验
+    // if (window.isPasswordProtected && window.isPasswordVerified) {
+    //     if (window.isPasswordProtected() && !window.isPasswordVerified()) {
+    //         showPasswordModal && showPasswordModal();
+    //         return;
+    //     }
+    // }
 
     // 获取当前路径作为返回页面
     let currentPath = window.location.href;
@@ -1189,7 +1220,7 @@ async function importConfigFromUrl() {
             }
 
             const config = await response.json();
-            if (config.name !== '妮妮TV-Settings') throw '配置文件格式不正确';
+            if (config.name !== 'LibreTV-Settings') throw '配置文件格式不正确';
 
             // 验证哈希
             const dataHash = await sha256(JSON.stringify(config.data));
@@ -1241,7 +1272,7 @@ async function importConfig() {
 
             // 解析并验证配置
             const config = JSON.parse(content);
-            if (config.name !== '妮妮TV-Settings') throw '配置文件格式不正确';
+            if (config.name !== 'LibreTV-Settings') throw '配置文件格式不正确';
 
             // 验证哈希
             const dataHash = await sha256(JSON.stringify(config.data));
@@ -1298,14 +1329,14 @@ async function exportConfig() {
     }
 
     const times = Date.now().toString();
-    config['name'] = '妮妮TV-Settings';  // 配置文件名，用于校验
+    config['name'] = 'LibreTV-Settings';  // 配置文件名，用于校验
     config['time'] = times;               // 配置文件生成时间
     config['cfgVer'] = '1.0.0';           // 配置文件版本
     config['data'] = items;               // 配置文件数据
     config['hash'] = await sha256(JSON.stringify(config['data']));  // 计算数据的哈希值，用于校验
 
     // 将配置数据保存为 JSON 文件
-    saveStringAsFile(JSON.stringify(config), '妮妮TV-Settings_' + times + '.json');
+    saveStringAsFile(JSON.stringify(config), 'LibreTV-Settings_' + times + '.json');
 }
 
 // 将字符串保存为文件

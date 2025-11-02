@@ -71,10 +71,3 @@ document.addEventListener('DOMContentLoaded', function() {
                     { search: searchQuery }, 
                     `搜索: ${searchQuery} - 妮妮TV`, 
                     `/s=${encodeURIComponent(searchQuery)}`
-                );
-            } catch (e) {
-                console.error('更新浏览器历史失败:', e);
-            }
-        }, 300);
-    }
-});
