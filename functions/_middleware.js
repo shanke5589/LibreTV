@@ -8,14 +8,9 @@ export async function onRequest(context) {
   if (contentType.includes("text/html")) {
     let html = await response.text();
     
-    // 处理普通密码
-    const password = env.PASSWORD || "";
-    let passwordHash = "";
-    if (password) {
-      passwordHash = await sha256(password);
-    }
+    // 密码功能已禁用，始终注入空字符串
     html = html.replace('window.__ENV__.PASSWORD = "{{PASSWORD}}";', 
-      `window.__ENV__.PASSWORD = "${passwordHash}";`);
+      `window.__ENV__.PASSWORD = "";`);
     
     return new Response(html, {
       headers: response.headers,
