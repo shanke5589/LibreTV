@@ -581,11 +581,7 @@ async function handleMultipleCustomSearch(searchQuery, customApiUrls) {
         const requestUrl = typeof input === 'string' ? new URL(input, window.location.origin) : input.url;
         
         if (requestUrl.pathname.startsWith('/api/')) {
-            if (window.isPasswordProtected && window.isPasswordVerified) {
-                if (window.isPasswordProtected() && !window.isPasswordVerified()) {
-                    return;
-                }
-            }
+            // 密码保护已禁用，跳过检查
             try {
                 const data = await handleApiRequest(requestUrl);
                 return new Response(data, {
