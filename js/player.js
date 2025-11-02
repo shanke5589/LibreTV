@@ -96,22 +96,15 @@ Artplayer.FULLSCREEN_WEB_IN_BODY = true;
 
 // 页面加载
 document.addEventListener('DOMContentLoaded', function () {
-    // 先检查用户是否已通过密码验证
-    if (!isPasswordVerified()) {
-        // 隐藏加载提示
-        document.getElementById('player-loading').style.display = 'none';
-        return;
-    }
-
+    // 密码保护已禁用，直接初始化页面
     initializePageContent();
 });
 
-// 监听密码验证成功事件
-document.addEventListener('passwordVerified', () => {
-    document.getElementById('player-loading').style.display = 'block';
-
-    initializePageContent();
-});
+// 监听密码验证成功事件 - 已禁用，不再需要
+// document.addEventListener('passwordVerified', () => {
+//     document.getElementById('player-loading').style.display = 'block';
+//     initializePageContent();
+// });
 
 // 初始化页面内容
 function initializePageContent() {
@@ -218,7 +211,7 @@ function initializePageContent() {
     }
 
     // 设置页面标题
-    document.title = currentVideoTitle + ' - LibreTV播放器';
+    document.title = currentVideoTitle + ' - 妮妮TV播放器';
     document.getElementById('videoTitle').textContent = currentVideoTitle;
 
     // 初始化播放器
